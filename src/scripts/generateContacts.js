@@ -9,10 +9,10 @@ const generateContacts = async (number) => {
   }
   try {
     const conractsDataJSON = await fs.readFile(PATH_DB, 'utf8');
-    const conractsData = conractsDataJSON.length
+    const contactsData = conractsDataJSON.length
       ? JSON.parse(conractsDataJSON)
       : [];
-    const newContactsData = [...conractsData, ...newContacts];
+    const newContactsData = [...contactsData, ...newContacts];
 
     await fs.writeFile(PATH_DB, JSON.stringify(newContactsData), 'utf8');
     console.log('Дані успішно додані до файлу.');
